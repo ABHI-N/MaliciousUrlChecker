@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <style name="textBoldLight">
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textThinSuperLightColor">
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <style name="buttonWithRoundBackground">
+        <item name="android:background">@drawable/shape_round_corner_white_border</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+
+
+
+
+
+
+</resources>

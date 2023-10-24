@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mainActivity_tb"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/eLight_green"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/include_common_tb_title_tv"
+            style="@style/textBoldLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Malicious Url Checker"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <TextView
+        android:id="@+id/mainActivity_title_tv"
+        style="@style/textBoldLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter URL to check"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/light_text_color"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainActivity_tb"/>
+
+
+    <ProgressBar
+        android:id="@+id/mainActivity_loading_pb"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="10dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/light_green"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/mainActivity_submit_button"
+        app:layout_constraintEnd_toStartOf="@+id/mainActivity_submit_button"
+        app:layout_constraintTop_toTopOf="@+id/mainActivity_submit_button" />
+
+    <EditText
+        android:id="@+id/mainActivity_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_round_corner_grey_border"
+        android:gravity="top"
+        android:hint="Url to check"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainActivity_title_tv"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/mainActivity_submit_button"
+        style="@style/buttonWithRoundBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/eLight_green"
+        android:text="Check"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainActivity_et"
+        />
+
+
+    <TextView
+        android:id="@+id/mainActivity_resultTitle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="RESULT :"
+        app:layout_constraintEnd_toStartOf="@id/mainActivity_result_tv"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainActivity_submit_button" />
+
+    <TextView
+        android:id="@+id/mainActivity_result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="...."
+        android:textColor="@color/light_green"
+        android:textSize="16sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mainActivity_resultTitle_tv"
+        app:layout_constraintBottom_toBottomOf="@id/mainActivity_resultTitle_tv"
+        app:layout_constraintStart_toEndOf="@id/mainActivity_resultTitle_tv"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/mainActivity_result_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="mainActivity_resultTitle_tv,mainActivity_result_tv"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
