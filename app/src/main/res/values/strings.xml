@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MaliciousUrlChecker</string>
+    <string name="this_user_interface_was_designed_by_psylinks_security_and_developed_by_abhishek_nirwan_as_a_selection_assignment">This user interface was designed by Psylinks Security and developed by Abhishek Nirwan as a selection assignment.</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.myapp.maliciousurlchecker;
+package com.myapp.maliciousurlchecker.viewModels;
 
 import androidx.lifecycle.LiveData;
 

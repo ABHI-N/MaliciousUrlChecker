@@ -24,6 +24,7 @@ public class IqQualityScoreRepository {
     public LiveData<IqQualityScoreResponseModel> getUrlQualityLiveData(String apiKey,String url) {
         final MutableLiveData<IqQualityScoreResponseModel> urlQualityLiveData = new MutableLiveData<>();
 
+
         iqQualityScoreRetrofitServices
                 .checkUrlQuality(apiKey,url)
                 .enqueue(new Callback<IqQualityScoreResponseModel>() {
@@ -37,6 +38,8 @@ public class IqQualityScoreRepository {
                         urlQualityLiveData.setValue(null);
                         t.printStackTrace();
                     }
+
+
                 });
 
         return urlQualityLiveData;

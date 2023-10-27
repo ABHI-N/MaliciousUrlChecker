@@ -17,10 +17,11 @@ import com.myapp.maliciousurlchecker.databinding.ActivityMainBinding;
 import com.myapp.maliciousurlchecker.models.IqQualityScoreResponseModel;
 import com.myapp.maliciousurlchecker.models.ResultModel;
 import com.myapp.maliciousurlchecker.security.SecureSharedPreferences;
+import com.myapp.maliciousurlchecker.utils.BasicUtils;
+import com.myapp.maliciousurlchecker.viewModels.IqQualityScoreViewModel;
 
 import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
         setupEt();
         //set check button listener.
         binding
+                .mainActivityParentCl
+                        .setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                BasicUtils.removeKeyboardNonClick(MainActivity.this,binding.mainActivityEt);
+                            }
+                        });
+        binding
                 .mainActivitySubmitButton
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -67,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkButtonPressed(){
+        //remove keyboard.
+        BasicUtils.removeKeyboardNonClick(MainActivity.this,binding.mainActivityEt);
+        //remove result text.
+        setResultAndVisibility(null);
+
         String url = binding.mainActivityEt.getText().toString();
 
         if(url.isEmpty()){
@@ -119,15 +133,21 @@ public class MainActivity extends AppCompatActivity {
     private void toggleLayoutOnLoading(boolean isLoadingStart){
 
         if(isLoadingStart){
-            binding.mainActivitySubmitButton.setAlpha(0.5f);
+            //button.
+            binding.mainActivitySubmitButton.setElevation(0);
             binding.mainActivitySubmitButton.setEnabled(false);
-            binding.mainActivityLoadingPb.setVisibility(View.VISIBLE);
+            //loading.
+            binding.mainActivityLoadingG.setVisibility(View.VISIBLE);
+            //et
             binding.mainActivityEt.setAlpha(0.5f);
             binding.mainActivityEt.setEnabled(false);
         }else{
-            binding.mainActivitySubmitButton.setAlpha(1);
+            //button.
+            binding.mainActivitySubmitButton.setElevation(BasicUtils.dpToPx(8,MainActivity.this));
             binding.mainActivitySubmitButton.setEnabled(true);
-            binding.mainActivityLoadingPb.setVisibility(View.GONE);
+            //loading.
+            binding.mainActivityLoadingG.setVisibility(View.GONE);
+            //et.
             binding.mainActivityEt.setAlpha(1);
             binding.mainActivityEt.setEnabled(true);
         }
@@ -135,10 +155,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setResultAndVisibility(@Nullable String result){
         if(result==null){
-            binding.mainActivityResultGroup.setVisibility(View.GONE);
+            binding.mainActivityResultTv.setVisibility(View.GONE);
             binding.mainActivityResultTv.setText("");
         }else{
-            binding.mainActivityResultGroup.setVisibility(View.VISIBLE);
+            binding.mainActivityResultTv.setVisibility(View.VISIBLE);
             binding.mainActivityResultTv.setText(result);
             //set data.
             ResultModel resultModel = resultData.getData(result);
@@ -160,10 +180,10 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                        boolean isResultVisible = binding.mainActivityResultGroup.getVisibility()==View.VISIBLE;
+                        boolean isResultVisible = binding.mainActivityResultTv.getVisibility()==View.VISIBLE;
                         if(isResultVisible){
                             //visible , set to gone.
-                            binding.mainActivityResultGroup.setVisibility(View.GONE);
+                            binding.mainActivityResultTv.setVisibility(View.GONE);
                         }
                     }
 

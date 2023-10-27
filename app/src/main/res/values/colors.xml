@@ -3,13 +3,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="light_green">#178552</color>
-    <color name="eLight_green">#1fbf75</color>
+
+
     <color name="light_text_color">#31404f</color>
-    <color name="divider_color1">#dadada</color>
-
-
-    <color name="dark_red">#b60201</color>
-    <color name="light_red">#D32F2F</color>
+    <color name="divider_color">#dadada</color>
+    <color name="background_color">#dee1e6</color>
+    <color name="theme_color">#63cd15</color>
+    <color name="theme_red">#c74b52</color>
 
 </resources>
